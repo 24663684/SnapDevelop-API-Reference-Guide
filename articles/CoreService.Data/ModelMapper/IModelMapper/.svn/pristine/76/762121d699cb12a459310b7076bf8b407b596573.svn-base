@@ -1,0 +1,84 @@
+## **IModelMapper 接口**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">当前版本(0.5.0-alpha) <img src="~/images/dropdown.png" class="dropdownpic"/></a>
+<div class="otherversions"  value="versdiv">
+<a href="javascript:void(0)">0.5.0-alpha</a>
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+</div>
+ModelMapper是基于.NET Standard开发的数据操作组件。ModelMapper is a data manipulation
+component compliant with .NET Standard.
+
+功能更偏向于业务逻辑的处理。提供简单易用的接口对多表关联、嵌套数据等复杂业务数据的包装处理，使用ModelMapper可以使用更少的代码清晰的处理复杂的业务逻辑。Compared to DataStore and ModelStore, it can handle complicated business logics in a more efficient way with significantly less coding. It can build models with data from multiple tables, supports nested levels of relationships, and provides implicit transaction management for business entities (i.e. a top-level object and all of its children).
+
+ModelMapper在保存数据时，自动将已追踪的所有数据库操作纳入事务范围以保证数据完整性。When ModelMapper is used to save data, it can automatically commit all tracked data operations in one transaction to achieve data integrity.
+
+**命名空间：** Appeon.CoreService.Data
+
+**程序集：** Appeon.CoreService.Data.dll
+
+### **语法**
+
+```c#
+ public interface IModelMapper;
+```
+
+### **方法**``
+|                                                      | 名称        |返回类型| 描述                                  |
+| ---------------------------------------------------- |---------| ----------- | ------------------------------------- |
+|![](~/images/method.jpeg)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|[Avg&#60;TModel>(string expression,params object[] parameters)](Method/Avg.html)|object|根据TModel中定义的检索条件来检索指定的SQL Expression的平均值。Computes the average value using the specified SQL expression for the data retrieved according to the criteria specified in a TModel class.|
+| ![](~/images/method.jpeg)|[Count&#60;TModel&#62;(params object[] parameters)](Method/Count.html)|int|根据TModel中定义的检索条件来检索数据库结果集的行数。Gets the number of rows in the result set retrieved according to the criteria specified in a TModel class.|
+| ![](~/images/method.jpeg)|[DistinctCount&#60;TModel&#62;(string expression,params object[] parameters)](Method/DistinctCount.html)|int|根据TModel中定义的检索条件来检索数据，用于获取根据SQL Expression定义计算的所有非重复值的计数行数。Retrieves a count of all distinct values specified by the SQL expression, according to the criteria specified in a TModel class.|
+| ![](~/images/method.jpeg)|[Exists&#60;TModel&#62;(params object[] parameters)](Method/Exists.html)|bool|根据TModel中定义的检索条件来检索数据，用于判断是否存在结果集记录。Checks whether any record exists according to the retrieval criteria specified in a TModel class.|
+| ![](~/images/method.jpeg)|[KeyExists&#60;TModel&#62;(params object[] parameters)](Method/KeyExists.html)|bool|根据TModel中定义的主键检索数据，用于判断是否存在数据。Checks whether data exists when retrieved according to the primary key defined in a TModel class.|
+| ![](~/images/method.jpeg)|[Load&#60;TModel&#62;(params object[] parameters)](Method/Load1.html)|[ILoadable&#60;TModel>](../ILoadable/ILoadable.html)|根据TModel中定义的SQL检索规则检索数据。Retrieves data according to the SQL query defined in a TModel class.|
+| ![](~/images/method.jpeg)|[Load&#60;TModel&#62;(ISqlQueryBuilder queryBuilder, params object[] parameters)](Method/Load2.html)|[ILoadable&#60;TModel>](../ILoadable/ILoadable.html)|根据一个SqlQueryBuilder实例中定义的SQL检索规则检索数据。Retrieves data according to the SQL query defined in the SqlQueryBuilder instance.|
+| ![](~/images/method.jpeg)|[LoadByKey&#60;TModel&#62;(params object[] parameters)](Method/LoadByKey.html)|[ILoadable&#60;TModel>](../ILoadable/ILoadable.html)|根据TModel中定义的主键检索数据。Retrieves data according to the primary key defined in a TModel class.|
+| ![](~/images/method.jpeg)|[LoadEmbedded&#60;TModel>(TModel model, params object[] parameters)](Method/LoadEmbedded.html)|[IEmbeddedLoadable&#60;TModel>](../IEmbeddedLoadable/IEmbeddedLoadable.html)|获取一个可以用于加载TModel实例中的嵌套属性的接口。Obtains the IEmbeddedLoadable&#60;TModel> interface which can be used to load the embedded property of a TModel instance.|
+| ![](~/images/method.jpeg)|[Max&#60;TModel>(string expression, params object[] parameters)](Method/Max.html)|object|根据一个TModel中定义的检索条件来获取指定的SQL Expression对应的最大值。Gets the maximum value for the specified SQL expression according to the retrieval criteria specified in a TModel class.|
+| ![](~/images/method.jpeg)|[Min&#60;TModel>(string expression, params object[] parameters)](Method/Min.html)|object|根据一个Model中预先定义的检索条件来获取指定SQL Expression对应的最小值。Gets the minimum value for the specified SQL expression according to the retrieval criteria specified in a Model class.|
+| ![](~/images/method.jpeg)|[SaveChanges(bool batchExecute = false)](Method/SaveChanges.html)|[IDbResult](../IDbResult/IDbResult.html)|将ModelMapper实例追踪到的数据操作更新到数据库。Updates the database by executing the data changes tracked by a ModelMapper instance.|
+| ![](~/images/method.jpeg)|[Scalar&#60;TModel, TValue>(string expression, params object[] parameters)](Method/Scalar.html)|TValue|根据TModel中定义的检索条件来检索指定的SQL Expression的第一行的第一列数据。Retrieves data of the first column in the first row for the specified SQL expression according to the criteria specified in a TModel class.|
+| ![](~/images/method.jpeg)|[ScalarByKey&#60;TModel, TValue&#62;(string expression, params object[] parameters)](Method/ScalarByKey.html)|TValue|根据TModel中定义的主键来检索指定的SQL Expression的第一行的第一列数据。Retrieves data of the first column in the first row for the specified SQL expression according to the primary key in a TModel class.|
+| ![](~/images/method.jpeg)|[Track(Action&#60;ISaveContext> saveAction)](Method/Track1.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|追踪一个Action Delegate。Tracks an Action delegate.|
+| ![](~/images/method.jpeg)|[Track&#60;TModel>(IModelEntry&#60;TModel> modelEntry)](Method/Track2.html)|TModel|追踪一个包含数据和状态的ModelEntry&#60;TModel>实例。Tracks a ModelEntry&#60;TModel> instance including data and status.|
+| ![](~/images/method.jpeg)|[Track&#60;TModel>(IModelEntry&#60;TModel> modelEntry, Action&#60;ISaveContext> afterSaveAction)](Method/Track3.html)|TModel|追踪一个包含数据和状态的ModelEntry&#60;TModel>实例，并指定更新数据库成功后调用一个Action Delegate。Tracks a ModelEntry&#60;TModel> instance including data and status, and calls an Action delegate after updating the specified database successfully.|
+| ![](~/images/method.jpeg)|[TrackCreate&#60;TModel>(TModel model)](Method/TrackCreate1.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|追踪一个TModel实例, 用于在数据库中新增一行记录。Tracks a TModel instance. Used for adding a record to the database.|
+| ![](~/images/method.jpeg) |[TrackCreate&#60;TModel>(TModel model, Action&#60;ISaveContext> afterSaveAction)](Method/TrackCreate2.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|追踪一个TModel实例, 用于在数据库中新增一行记录，并在新增记录后调用一个Action Delegate。Tracks a TModel instance, used for adding a record to the database and calling an Action delegate after adding the record.|
+| ![](~/images/method.jpeg)|[TrackCreateRange&#60;TModel>(IEnumerable&#60;TModel> models)](Method/TrackCreateRange.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|Track a Collection of the specified TModel type, 用于在数据库中新增一行或者多行记录。Tracks a collection of the specified TModel type. Used for adding one or multiple records to a database.|
+| ![](~/images/method.jpeg)|[TrackDelete&#60;TModel>(TModel model)](Method/TrackDelete1.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|追踪一个TModel实例, 用于删除数据库中与TModel对象对应的记录。Tracks a TModel instance. Used for deleting the database record that corresponds to the TModel object.|
+| ![](~/images/method.jpeg)|[TrackDelete&#60;TModel>(TModel model, Action&#60;ISaveContext> afterSaveAction)](Method/TrackDelete2.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|追踪一个TModel实例, 用于删除数据库中与TModel对象对应的记录，并在数据保存后但未提交数据库之前调用一个Action Delegate。Tracks a TModel instance. Used for deleting the database record corresponding to the TModel object and calling an Action delegate after saving the data and before committing to the database.|
+|![](~/images/method.jpeg)|[TrackDelete(ISqlDeleteBuilder deleteBuilder, params object[] parameters)](Method/TrackDelete3.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|追踪一个实现了ISqlDeleteBuilder接口的实例，并传入该实例构建的SQL中所需要的参数，用于在数据库删除记录。Tracks an instance which has implemented the ISqlDeleteBuilder interface and passes in the parameter required by the instance for the constructed SQLs. Used for finally deleting the record in the database.|
+| ![](~/images/method.jpeg)|[TrackDeleteByKey&#60;TModel>(params object[] parameters)](Method/TrackDeleteByKey.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|追踪根据TModel中定义的主键作为删除参数的数据，用于在数据库删除记录。Tracks the data that is deleted according to the primary key in TModel. Used for finally deleting the database records.|
+| ![](~/images/method.jpeg)|[TrackDeleteRange&#60;TModel>(IEnumerable&#60;TModel> models)](Method/TrackDeleteRange.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|Track a Collection of the specified TModel type, 用于在数据库中删除一行或者多行记录。Tracks a collection of the specified TModel type. Used for deleting one or multiple records in a database.|
+| ![](~/images/method.jpeg)|[TrackInsert(ISqlInsertBuilder insertBuilder, params object[] parameters)](Method/TrackInsert.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|追踪一个实现了ISqlInsertBuilder接口的实例，并传入该实例构建的SQL中所需要的参数，用于在数据库中插入记录。Tracks an instance which has implemented the ISqlInsertBuilder interface and passes in the parameter(s) required by the instance for the constructed SQL. Used for finally inserting the record into the database.|
+| ![](~/images/method.jpeg)|[TrackMaster&#60;TModel>(IModelEntry&#60;TModel> modelEntry)](Method/TrackMaster1.html)|[IDetailTracker&#60;TModel>](../IDetailTracker/IDetailTracker.html)|When working with multiple Models which have Master-Detail relationship，追踪一个包含了Master Model数据和状态的ModelEntry&#60;TModel>实例，用于在数据库中更新主Model的数据。Tracks a ModelEntry&#60;TModel> instance which includes the data and status of the master Model, when working with multiple Models which have master-detail relationships. Used for updating the data of the master Model in the database.|
+| ![](~/images/method.jpeg)|[TrackMaster&#60;TModel>(IModelEntry&#60;TModel> modelEntry, Action&#60;ISaveContext> afterSaveAction)](Method/TrackMaster2.html)|[IDetailTracker&#60;TModel>](../IDetailTracker/IDetailTracker.html)|When working with multiple Models which have Master-Detail relationship，追踪一个包含了Master Model数据和状态的ModelEntry&#60;TModel>实例，用于在数据库中更新主Model的数据, 并在数据保存后但未提交数据库之前调用一个Action Delegate。Tracks a ModelEntry&#60;TModel> instance which includes the data and status of the master Model, when working with multiple Models which have master-detail relationships. Used for updating the data of the master Model in the database and calling an Action delegate after saving the data and before committing to the database.|
+| ![](~/images/method.jpeg) |[TrackRange&#60;TModel>(IEnumerable<IModelEntry&#60;TModel>> modelEntries)](Method/TrackRange.html)|IList&#60;TModel>|Tracks a collection of ModelEntries with the specified TModel type.|
+| ![](~/images/method.jpeg)|[TrackSqlCUD(string sqlText, params object[] parameters)](Method/TrackSqlCUD.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|Tracks an INSERT, UPDATE, or DELETE SQL statement.|
+| ![](~/images/method.jpeg)|[TrackUpdate&#60;TModel>(TModel model)](Method/TrackUpdate1.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|追踪一个TModel实例, 用于更新数据库中与该TModel实例对应的记录。Tracks a TModel instance. Used for updating the database record corresponding to the TModel instance.|
+| ![](~/images/method.jpeg)|[TrackUpdate&#60;TModel>(TModel model, Action&#60;ISaveContext> afterSaveAction)](Method/TrackUpdate2.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|追踪一个TModel实例, 用于更新数据库中与该TModel实例对应的记录,并在数据保存后但未提交数据库之前调用一个Action Delegate。Tracks a TModel instance. Used for updating the database record corresponding to the TModel instance and calling an Action delegate after saving the data and before committing to the database.|
+| ![](~/images/method.jpeg)|[TrackUpdate&#60;TModel>(ISqlUpdateBuilder updateBuilder, params object[] parameters)](Method/TrackUpdate3.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|追踪一个实现了ISqlUpdateBuilder接口的实例，并传入该实例构建的SQL中所需要的参数，用于在数据库更新记录。Tracks an instance which has implemented the ISqlUpdateBuilder interface and passes in the parameter required by the instance for the constructed SQLs. Used for finally updating the record in the database.|
+| ![](~/images/method.jpeg)|[TrackUpdateRange&#60;TModel>(IEnumerable&#60;TModel> models)](Method/TrackUpdateRange.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|Track a Collection of the specified TModel type, 用于在数据库中更新一行或者多行记录。Tracks a collection of the specified TModel type. Used for updating one or multiple records to a database.|
+| ![](~/images/method.jpeg)|[Validation()](Method/Validation1.html)|bool|对ModelMapper追踪到的所有数据进行合法性验证。Performs validity check to all of the data tracked by ModelMapper.|
+| ![](~/images/method.jpeg)|[Validation(out DataValidationResult result)](Method/Validation2.html)|bool|对ModelMapper追踪到的数据进行合法性验证，并获取验证结果。Performs validity check to all of the data tracked by ModelMapper and gets the validation result.|
+### **备注**
+
+| 说明                                                         |
+| ------------------------------------------------------------ |
+| ModelMapper是一个简单易用的数据操作组件，实现了数据库表和c#对象的映射关系，提供了更灵活的数据操作接口，只需要编写简单的代码便能实现对象的关系以及级联操作，程序员几乎可以不编写任何SQL语句就能实现对数据库的操作功能。 |
+| Tracking                                                     |
+| ModelMapper提供了多种Track方法，当Track方法执行时仅仅记录了待执行的数据库操作，而并未实际执行数据库操作。当调用多个ModelMapper中用于追踪的方法后，追踪的先后顺序决定了SaveChanges方法在实际执行数据库操作时的先后顺序。当调用SaveChanges方法实际执行数据库操作时，所有数据库操作将会在同一个一个事务范围内，当后续数据库操作需要依赖于某次前序的数据操作的结果时(比如)，可以利用Track方法提供的Action<ISaveAction>参数来灵活添加特殊的逻辑代码，接收和传递保存数据过程中的上下文信息。调用SaveChanges方法实际执行数据库操作后，所有已追踪的数据库操作将重置。 |
+
+### **示例**
+
+
+
+
+
+
+
+
+
+
+
+

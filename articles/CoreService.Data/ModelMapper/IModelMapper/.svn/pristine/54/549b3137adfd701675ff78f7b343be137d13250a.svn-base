@@ -1,0 +1,68 @@
+
+
+## **IModelMapper.Track&#60;TModel>(IModelEntry&#60;TModel> modelEntry) 方法**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">当前版本(0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+追踪一个包含数据和状态的ModelEntry<TModel>实例。
+Tracks a ModelEntry<TModel> instance including data and status.
+
+ **命名空间：** Appeon.CoreService.Data
+
+ **程序集：** Appeon.CoreService.Data.dll
+
+### **语法**
+
+```c#
+   public TModel Track<TModel>(IModelEntry<TModel> modelEntry);
+```
+
+**Type Parameters**
+
+`TModel`
+
+The type of a model class that conforms to Appeon's standard.
+
+**Parameters**
+
+`modelEntry` [Appeon.CoreService.Data.IModelEntry&#60;TModel>](../../IModelEntry2/IModelEntry.html)
+
+一个包含数据和状态的ModelEntry实例。
+A ModelEntry<TModel> instance including data and status.
+
+**Returns**
+
+TModel
+
+返回一个已被追踪的Model实例，该Model中包含ModelEntry实例中的数据。
+
+Returns a tracked Model instance which includes the data in ModelEntry instance.
+
+### **备注**
+
+在执行SaveChanges方法时将根据Model中的定义以及数据的状态，自动执行相应的DML，对数据进行新增、修改或者删除等操作。
+
+When executing the SaveChanges method, it automatically executes the corresponding DML according to the definition and data status in the Model, and perform CRUD operations.
+
+当调用ModelMapper的多个追踪方法后，追踪的先后顺序决定了实际执行数据库操作的先后顺序。
+After calling multiple track methods of the ModelMapper, the order of the tracks determine the order of the actual operations to the database.
+
+### **示例**
+
+
+
+
+
+### **版本信息**
+
+.Net Standard 
+
+自2.x起可用

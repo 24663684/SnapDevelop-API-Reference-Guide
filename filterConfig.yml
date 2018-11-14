@@ -1,0 +1,58 @@
+apiRules:
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Data\.DataContext
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Data\.AdoDbConnection
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Data\.AdoDbDataVisitor
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Data\.AdoDbProvider
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Data\.AdoDbProviderFactory
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Data\.AdoDbSchemaProvider
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Expressions\.ExpressionFactory<TSource>
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Expressions\.ExprGroupProvider
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Expressions\.ExprMethodProvider
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Expressions\.ExprParameterProvider
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Expressions\.ExprPropertyProvider
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Expressions\.ExprProviderFactory
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Expressions\.ExprVariableProvider
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Expressions\.Metadata
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.CoreService\.Expressions\.SubTransferParameter
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.PowerBuilder\.DataStore<TModel>
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.PowerBuilder\.DwNode<TNode>
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.PowerBuilder\.DwProperty
+    type: Class
+- exclude:
+    uidRegex: ^Appeon\.PowerBuilder\.DwProperty<TNode>
+    type: Class

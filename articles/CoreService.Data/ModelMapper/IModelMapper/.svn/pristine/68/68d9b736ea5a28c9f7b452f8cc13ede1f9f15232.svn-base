@@ -1,0 +1,61 @@
+
+
+## **IModelMapper.TrackRange&#60;TModel>(IEnumerable<IModelEntry&#60;TModel>> modelEntries) Method**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">Current version (0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+追踪一个或者多个数据库表的操作,由数据的状态决定如何选择insert, update or delete 操作，将被用来操纵数据库表的数据缓存于TModel中。当IModelMapper.SaveChanges被调用时，一条或者多条SQL INSERT, UPDATE or DELETE statement 将用缓存在TModel中的数据以及被定义在TModel中的映射信息来产生，并执行。
+
+Tracks one or more database table operations (insert, update or delete). The data state determines which operation to perform. The data to be manipulated is cached in TModel. When IModelMapper.SaveChanges is called, one or more SQL statements (INSERT, UPDATE or DELETE) will be generated using the data cached in TModel and the mapping information defined in TModel, and then executed.
+
+ **Namespace:** Appeon.CoreService.Data
+
+ **Assembly:** Appeon.CoreService.Data.dll
+
+### **Syntax**
+
+```c#
+  public IList<TModel> TrackRange<TModel>(IEnumerable<IModelEntry<TModel>> modelEntries);
+```
+
+**Type Parameters**
+
+`TModel`
+
+The type of a model class that conforms to the Appeon standard.
+
+**Parameters**
+
+`modelEntries` System.Collections.Generic.IEnumerable<[Appeon.CoreService.Data.IModelEntry](../../IModelEntry2/IModelEntry.html)&#60;TModel>>
+
+A collection of ModelEntries with the specified TModel type.
+
+**Returns**
+
+System.Collections.Generic.IList&#60;TModel>
+
+A list of TModel type instances.
+
+### **Remarks**
+
+
+
+### **Examples**
+
+
+
+
+
+### **Applies to**
+
+.NET Standard 
+
+2.x

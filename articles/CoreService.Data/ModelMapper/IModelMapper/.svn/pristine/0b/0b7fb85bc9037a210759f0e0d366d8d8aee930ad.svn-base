@@ -1,0 +1,87 @@
+
+
+## **IModelMapper.SaveChanges(bool batchExecute = false) 方法**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">当前版本(0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+将ModelMapper实例追踪到的数据操作更新到数据库。
+
+Updates the database by executing the data changes tracked by a ModelMapper instance.
+
+ **命名空间：** Appeon.CoreService.Data
+
+ **程序集：** Appeon.CoreService.Data.dll
+
+### **语法**
+
+```c#
+  public IDbResult SaveChanges(bool batchExecute = false);
+```
+
+**Parameters**
+
+`batchExecute` System.Boolean
+
+当存在多条待执行的SQL DML时，是批量执行还是一条一条执行。
+
+Whether to execute the SQL DML one by one or in a batch, when there are more than one SQL DML to be executed.
+
+默认为false，表示一条一条执行。
+
+The default value is false which indicates SQL DML will be executed one by one.
+
+当需要执行的SQL DML较多时，建议设置为true，可减少数据库请求次数提供执行效率。
+
+When there are a large amount of SQL DML, it is recommended to set to true, to reduce the database requests and improve the execution speed.
+
+**Returns**
+
+[Appeon.CoreService.Data.IDbResult](../../IDbResult/IDbResult.html)
+
+返回一个接口，可以利用该接口的各种属性方便地获取在数据库执行后得到的结果。
+
+Returns an interface whose property can be used to conveniently get the result of the executed database operation.
+
+### **备注**
+
+更新数据库成功后，ModelMapper将重置到初始状态，取消对Model等的追踪。
+
+When the database is updated successfully, ModelMapper is restored to the initial state which will not track Model etc.
+
+如果需要继续利用进行其他数据操作，请重新使用TrackCreate&#60;TModel>(TModel model)等方法进行追踪。
+
+To continue using ModelMapper for other data operations, use TrackCreate&#60;TModel>(TModel model) etc. to track the changes again.
+
+#### **Database Transaction**
+
+该方法默认创建一个数据库事务，并在该事务内执行所有待执行的SQL DML。
+
+This method will by default create a database transaction where all of the SQL DML will be executed.
+
+当任何异常出现时，数据库事务会自动回滚。
+
+When any exceptions occur, the database transaction will be automatically rolled back.
+
+#### **Validation**
+
+在更新数据库前，会对Model中的数据进行校验，如果出现错误则抛出异常。
+
+Before updating the database, the system will validate the data in the Model. If any error, exceptions will be thrown.
+
+### **示例**
+
+
+
+### **版本信息**
+
+.Net Standard 
+
+自2.x起可用

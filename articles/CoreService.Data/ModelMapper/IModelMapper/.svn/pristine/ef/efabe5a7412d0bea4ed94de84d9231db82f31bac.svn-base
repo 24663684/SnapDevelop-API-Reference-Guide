@@ -1,0 +1,57 @@
+
+
+## **IModelMapper.TrackUpdateRange&#60;TModel>(IEnumerable&#60;TModel> models) 方法**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">当前版本(0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+更新一组数据
+
+ **命名空间：** Appeon.CoreService.Data
+
+ **程序集：** Appeon.CoreService.Data.dll
+
+### **语法**
+
+```c#
+  public IModelMapper TrackUpdateRange<TModel>(IEnumerable<TModel> models);
+```
+
+**Type Parameters**
+
+`TModel`
+
+待定。
+
+**Parameters**
+
+`models` System.Collections.Generic.IEnumerable&360;TModel>
+
+待定。
+
+**Returns**
+
+[Appeon.CoreService.Data.IModelMapper](../../IModelMapper/IModelMapper.html)
+
+待定。
+
+### **备注**
+
+待定。
+
+### **示例**
+
+
+
+### **版本信息**
+
+.Net Standard 
+
+自2.x起可用

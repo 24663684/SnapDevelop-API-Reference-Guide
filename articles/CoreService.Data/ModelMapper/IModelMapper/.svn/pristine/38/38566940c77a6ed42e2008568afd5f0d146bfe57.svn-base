@@ -1,0 +1,65 @@
+
+
+## **IModelMapper.TrackUpdateRange&#60;TModel>(IEnumerable&#60;TModel> models) Method**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">Current version (0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+Track a Collection of the specified TModel type, 用于在数据库中更新一行或者多行记录。
+
+Tracks a collection of the specified TModel type. Used for updating one or multiple records to a database.
+
+ **Namespace:** Appeon.CoreService.Data
+
+ **Assembly:** Appeon.CoreService.Data.dll
+
+### **Syntax**
+
+```c#
+  public IModelMapper TrackUpdateRange<TModel>(IEnumerable<TModel> models);
+```
+
+**Type Parameters**
+
+`TModel`
+
+The type of a model class that conforms to the Appeon standard.
+
+**Parameters**
+
+`models` System.Collections.Generic.IEnumerable&#60;TModel>
+
+A Collection of TModel type, 用于更新一行或者多行记录。
+
+A collection of TModel type used for updating one or multiple records.
+
+**Returns**
+
+[Appeon.CoreService.Data.IModelMapper](../../IModelMapper/IModelMapper.html)
+
+返回一个IModelMapper接口，可以使用该接口继续使用当前ModelMapper实例执行其他 Method。
+
+Returns an IModelMapper interface, which can be used for executing other methods with the current ModelMapper instance.
+
+### **Remarks**
+
+在执行SaveChanges Method时，将根据TModel中的更新规则以及TModel集合中数据，在数据库更新一行或者多行记录。
+
+When the SaveChanges method is executed, it automatically updates one or multiple records to the database according to the update rule of TModel and the data in the TModel set.
+
+### **Examples**
+
+
+
+### **Applies to**
+
+.NET Standard 
+
+2.x

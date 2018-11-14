@@ -1,0 +1,64 @@
+
+
+## **IModelMapper.Track&#60;TModel>(IModelEntry&#60;TModel> modelEntry) Method**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">Current version (0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+追踪一个数据库表的操作,由数据的状态决定如何选择insert, update or delete 操作，将被用来操纵数据库表的数据缓存于TModel中。当IModelMapper.SaveChanges被调用时，一条SQL INSERT, UPDATE or DELETE statement 将用缓存在TModel中的数据以及被定义在TModel中的映射信息来产生，并执行。
+
+Track a database table insert,update or delete operation depends on the state of the data, the data that will be used to manipulate database table is cached in TModel. When IModelMapper.SaveChanges is called, a SQL INSERT, UPDATE or DELETE statement will be generated using the data cached in TModel and mapping information defined in TModel and executed.
+
+ **Namespace:** Appeon.CoreService.Data
+
+ **Assembly:** Appeon.CoreService.Data.dll
+
+### **Syntax**
+
+```c#
+   public TModel Track<TModel>(IModelEntry<TModel> modelEntry);
+```
+
+**Type Parameters**
+
+`TModel`
+
+The type of a model class that conforms to Appeon's standard.
+
+**Parameters**
+
+`modelEntry` [Appeon.CoreService.Data.IModelEntry&#60;TModel>](../../IModelEntry2/IModelEntry.html)
+
+一个包含数据和状态的ModelEntry实例。
+A ModelEntry&#60;TModel> instance including data and status.
+
+**Returns**
+
+TModel
+
+返回一个已被追踪的Model实例，该Model中包含ModelEntry实例中的数据。
+
+Returns a tracked Model instance which includes the data in ModelEntry instance.
+
+### **Remarks**
+
+
+
+### **Examples**
+
+
+
+
+
+### **Applies to**
+
+.NET Standard 
+
+2.x

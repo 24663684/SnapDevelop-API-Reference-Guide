@@ -1,0 +1,78 @@
+## **IModelMapper 接口**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">当前版本(0.5.0-alpha) <img src="~/images/dropdown.png" class="dropdownpic"/></a>
+<div class="otherversions"  value="versdiv">
+<a href="javascript:void(0)">0.5.0-alpha</a>
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+</div>
+
+ModelMapper是基于.NET Standard开发的数据操作组件，功能更偏向于业务逻辑的处理，提供简单易用的接口对多表关联、嵌套数据等复杂业务数据的包装处理，使用ModelMapper可以使用更少的代码清晰的处理复杂的业务逻辑，内部会自动纳入事务范围保证数据完整性。
+
+**命名空间：** Appeon.CoreService.Data
+
+**程序集：** Appeon.CoreService.Data.dll
+
+### **语法**
+
+```c#
+ public interface IModelMapper;
+```
+
+### **方法**
+|                                                      | 名称        |返回类型| 描述                                  |
+| ---------------------------------------------------- |---------| ----------- | ------------------------------------- |
+|![](~/images/method.jpeg)&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;|[Avg&#60;TModel>(string expression,params object[] parameters)](Method/Avg.html)|object|查询表达式定义的平均值。|
+| ![](~/images/method.jpeg)|[Count&#60;TModel&#62;(params object[] parameters)](Method/Count.html)|int|统计行数。|
+| ![](~/images/method.jpeg)|[DistinctCount&#60;TModel&#62;(string expression,params object[] parameters)](Method/DistinctCount.html)|int|统计去除了表达式定义的重复数据的行数。|
+| ![](~/images/method.jpeg)|[Exists&#60;TModel&#62;(params object[] parameters)](Method/Exists.html)|bool|确定是否存在指定条件的元素。|
+| ![](~/images/method.jpeg)|[KeyExists&#60;TModel&#62;(params object[] parameters)](Method/KeyExists.html)|bool|确定主键是否存在。|
+| ![](~/images/method.jpeg)|[Load&#60;TModel&#62;(params object[] parameters)](Method/Load1.html)|[ILoadable&#60;TModel>](../ILoadable/ILoadable.html)|传入TModel中定义的查询参数查询数据。|
+| ![](~/images/method.jpeg)|[Load&#60;TModel&#62;(ISqlQueryBuilder queryBuilder, params object[] parameters)](Method/Load2.html)|[ILoadable&#60;TModel>](../ILoadable/ILoadable.html)|根据SqlQueryBuilder的定义查询数据。|
+| ![](~/images/method.jpeg)|[LoadByKey&#60;TModel&#62;(params object[] parameters)](Method/LoadByKey.html)|[ILoadable&#60;TModel>](../ILoadable/ILoadable.html)|使用主键作为参数查询数据。|
+| ![](~/images/method.jpeg)|[LoadEmbedded&#60;TModel>(TModel model, params object[] parameters)](Method/LoadEmbedded.html)|[IEmbeddedLoadable&#60;TModel>](../IEmbeddedLoadable/IEmbeddedLoadable.html)||
+| ![](~/images/method.jpeg)|[Max&#60;TModel>(string expression, params object[] parameters)](Method/Max.html)|object|查询表达式定义的最大值。|
+| ![](~/images/method.jpeg)|[Min&#60;TModel>(string expression, params object[] parameters)](Method/Min.html)|object|查询表达式定义的最小值。|
+| ![](~/images/method.jpeg)|[SaveChanges(bool batchExecute = false)](Method/SaveChanges.html)|[IDbResult](../IDbResult/IDbResult.html)|把对数据的修改保存到数据库中。|
+| ![](~/images/method.jpeg)|[Scalar&#60;TModel, TValue>(string expression, params object[] parameters)](Method/Scalar.html)|TValue|查询表达式定义的第一行的数据。|
+| ![](~/images/method.jpeg)|[ScalarByKey&#60;TModel, TValue&#62;(string expression, params object[] parameters)](Method/ScalarByKey.html)|TValue|根据主键查询表达式定义的第一行的数据。|
+| ![](~/images/method.jpeg)|[Track(Action&#60;ISaveContext> saveAction)](Method/Track1.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|跟踪Action委托，在数据未被提交到数据库之前调用。|
+| ![](~/images/method.jpeg)|[Track&#60;TModel>(IModelEntry&#60;TModel> modelEntry)](Method/Track2.html)|TModel|跟踪数据的状态，在保存时可以根据数据的状态进行相应的操作。|
+| ![](~/images/method.jpeg)|[Track&#60;TModel>(IModelEntry&#60;TModel> modelEntry, Action&#60;ISaveContext> afterSaveAction)](Method/Track3.html)|TModel|跟踪数据的状态，在保存时可根据数据的状态进行对应的操作，Action委托参数会在Sql命令执行后但未提交前调用。|
+| ![](~/images/method.jpeg)|[TrackCreate&#60;TModel>(TModel model)](Method/TrackCreate1.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|新增数据。|
+| ![](~/images/method.jpeg) |[TrackCreate&#60;TModel>(TModel model, Action&#60;ISaveContext> afterSaveAction)](Method/TrackCreate2.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|新增数据，Action委托参数会在Sql命令执行后但未提交前调用。|
+| ![](~/images/method.jpeg)|[TrackCreateRange&#60;TModel>(IEnumerable&#60;TModel> models)](Method/TrackCreateRange.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|新增一组数据。|
+| ![](~/images/method.jpeg)|[TrackDelete&#60;TModel>(TModel model)](Method/TrackDelete1.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|删除数据。|
+| ![](~/images/method.jpeg)|[TrackDelete&#60;TModel>(TModel model, Action&#60;ISaveContext> afterSaveAction)](Method/TrackDelete2.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|删除数据，Action委托参数会在Sql命令执行后但未提交前调用。|
+|![](~/images/method.jpeg)|[TrackDelete(ISqlDeleteBuilder deleteBuilder, params object[] parameters)](Method/TrackDelete3.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|使用ISqlDeleteBuilder删除数据。|
+| ![](~/images/method.jpeg)|[TrackDeleteByKey&#60;TModel>(params object[] parameters)](Method/TrackDeleteByKey.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|使用主键作为参数删除数据。|
+| ![](~/images/method.jpeg)|[TrackDeleteRange&#60;TModel>(IEnumerable&#60;TModel> models)](Method/TrackDeleteRange.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|删除一组数据。|
+| ![](~/images/method.jpeg)|[TrackInsert(ISqlInsertBuilder insertBuilder, params object[] parameters)](Method/TrackInsert.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|使用ISqlInsertBuilder插入数据。|
+| ![](~/images/method.jpeg)|[TrackMaster&#60;TModel>(IModelEntry&#60;TModel> modelEntry)](Method/TrackMaster1.html)|[IDetailTracker&#60;TModel>](../IDetailTracker/IDetailTracker.html)|跟踪主Model的数据并可以根据在主Model的配置对关联对象进行赋值。|
+| ![](~/images/method.jpeg)|[TrackMaster&#60;TModel>(IModelEntry&#60;TModel> modelEntry, Action&#60;ISaveContext> afterSaveAction)](Method/TrackMaster2.html)|[IDetailTracker&#60;TModel>](../IDetailTracker/IDetailTracker.html)|跟踪主Model的数据并可以根据在主Model的配置对关联对象进行赋值，Action委托参数会在Sql命令执行后但未提交前调用。|
+| ![](~/images/method.jpeg) |[TrackRange&#60;TModel>(IEnumerable<IModelEntry&#60;TModel>> modelEntries)](Method/TrackRange.html)|IList&#60;TModel>||
+| ![](~/images/method.jpeg)|[TrackSqlCUD(string sqlText, params object[] parameters)](Method/TrackSqlCUD.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|执行创建，更新，删除Sql语句。|
+| ![](~/images/method.jpeg)|[TrackUpdate&#60;TModel>(TModel model)](Method/TrackUpdate1.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|更新数据。|
+| ![](~/images/method.jpeg)|[TrackUpdate&#60;TModel>(TModel model, Action&#60;ISaveContext> afterSaveAction)](Method/TrackUpdate2.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|更新数据，Action委托参数会在Sql命令执行后但未提交前调用。|
+| ![](~/images/method.jpeg)|[TrackUpdate&#60;TModel>(ISqlUpdateBuilder updateBuilder, params object[] parameters)](Method/TrackUpdate3.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|使用IsqlUpdateBuilder更新数据。|
+| ![](~/images/method.jpeg)|[TrackUpdateRange&#60;TModel>(IEnumerable&#60;TModel> models)](Method/TrackUpdateRange.html)|[IModelMapper](../IModelMapper/IModelMapper.html)|更新一组数据|
+| ![](~/images/method.jpeg)|[Validation()](Method/Validation1.html)|bool|使用ModelMapper中设置的数据较验规则对数据的合法性进行验证。|
+| ![](~/images/method.jpeg)|[Validation(out DataValidationResult result)](Method/Validation2.html)|bool|使用ModelMapper中设置的数据较验规则对输出的结果数据的合法性进行验证。|
+### **备注**
+
+| 说明                                                         |
+| ------------------------------------------------------------ |
+| ModelMapper是一个简单易用的数据操作组件，实现了数据库表和c#对象的映射关系，提供了更灵活的数据操作接口，只需要编写简单的代码便能实现对象的关系以及级联操作，程序员几乎可以不编写任何SQL语句就能实现对数据库的操作功能。当调用多个ModelMapper中用于追踪的方法后，追踪的先后顺序决定了SaveChanges方法在实际执行数据库操作时的先后顺序。 |
+
+### **示例**
+
+
+
+
+
+
+
+
+
+
+
+

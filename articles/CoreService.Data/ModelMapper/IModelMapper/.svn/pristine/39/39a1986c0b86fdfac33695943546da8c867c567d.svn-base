@@ -1,0 +1,69 @@
+
+
+## **IModelMapper.Load&#60;TModel>(ISqlQueryBuilder queryBuilder, params object[] parameters) 方法**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">当前版本(0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+根据一个SqlQueryBuilder实例中定义的SQL检索规则进行检索数据。
+
+Loads the data retrieved according to the SQL query defined in a SqlQueryBuilder instance.
+
+ **命名空间：** Appeon.CoreService.Data
+
+ **程序集：** Appeon.CoreService.Data.dll
+
+### **语法**
+
+```c#
+  public ILoadable<TModel> Load<TModel>(ISqlQueryBuilder queryBuilder, params object[] parameters);
+```
+
+**Type Parameters**
+
+`TModel`
+
+The type of a model class that conforms to the Appeon standards.
+
+**Parameters**
+
+`queryBuilder` [Appeon.CoreService.Data.ISqlQueryBuilder](../../ISqlQueryBuilder/ISqlQueryBuilder.html)
+
+一个SqlQueryBuilder实例，用户可以使用它覆盖Model中预定义的静态的SQL检索规则，从而实现动态检索。
+
+A SqlQueryBuilder instance which can be used to overwrite the static SQL query defined in a Model, so as to perform dynamic retrieval.
+
+`parameters` System.Object[]
+
+(Optional) One or more values that you want to use as retrieval arguments in the SQL SELECT statement defined in queryBuilder.
+
+**Returns**
+
+[Appeon.CoreService.Data.ILoadable&#60;TModel>](../../ILoadable/ILoadable.html)
+
+返回ILoadable&#60;TModel>接口，可使用该接口的方法进一步获取数据结果集，或者进行嵌套查询等操作。
+
+Returns the ILoadable&#60;TModel> interface whose methods can be used to further obtain the data result set or perform data operations such as embedded queries.
+
+### **备注**
+
+
+
+### **示例**
+
+
+
+
+
+### **版本信息**
+
+.Net Standard 
+
+自2.x起可用

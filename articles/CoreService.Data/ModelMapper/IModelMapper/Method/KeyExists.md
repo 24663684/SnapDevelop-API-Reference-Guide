@@ -1,0 +1,62 @@
+
+
+## **IModelMapper.KeyExists&#60;TModel>(params object[] parameters)  Method**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">Current version (0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+根据TModel中定义的主键检索数据，用于判断是否存在数据。
+
+Checks whether data exists when retrieved according to the primary key defined in a TModel class.
+
+ **Namespace:** Appeon.CoreService.Data
+
+ **Assembly:** Appeon.CoreService.Data.dll
+
+### **Syntax**
+
+```c#
+  public bool KeyExists<TModel>(params object[] parameters);
+```
+
+**Type Parameters**
+
+`TModel`
+
+The type of a model class that conforms to the Appeon standards.
+
+**Parameters**
+
+`parameters` System.Object[]
+
+(Optional) One or more values that you want to use as retrieval arguments in the SQL SELECT statement defined by the main table and its primary key in TModel.
+
+**Returns**
+
+System.Boolean
+
+是否存在结果集记录。
+
+Returns whether data exists.
+
+### **Remarks**
+
+该 Method执行的SQL是根据TModel中定义的主表和它的主键生成的。
+
+The SQL statement that is executed is formulated according to the main table and primary key defined in TModel.
+
+### **Examples**
+
+
+
+### **Applies to**
+
+.NET Standard 
+
+2.x

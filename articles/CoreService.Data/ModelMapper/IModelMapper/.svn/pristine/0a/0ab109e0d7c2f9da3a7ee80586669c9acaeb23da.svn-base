@@ -1,0 +1,61 @@
+
+
+## **IModelMapper.TrackCreate&#60;TModel>(TModel model) Method**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">Current version (0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+追踪一个TModel实例, 用于在数据库中新增一行记录。
+Tracks a TModel instance. Used for adding a record to the database.
+
+ **Namespace:** Appeon.CoreService.Data
+
+ **Assembly:** Appeon.CoreService.Data.dll
+
+### **Syntax**
+
+```c#
+  public IModelMapper TrackCreate<TModel>(TModel model);
+```
+
+**Type Parameters**
+
+`TModel`
+
+The type of a model class that conforms to the Appeon standard.
+
+**Parameters**
+
+`model` TModel
+
+用于新增一行记录的Model实例。
+A TModel instance used for adding a record.
+
+**Returns**
+
+[Appeon.CoreService.Data.IModelMapper](../../IModelMapper/IModelMapper.html)
+
+返回一个IModelMapper接口，可以使用该接口继续使用当前ModelMapper实例执行其他 Method。
+Returns an IModelMapper interface, which can be used for executing other methods with the current ModelMapper instance.
+
+### **Remarks**
+
+在执行SaveChanges Method时，将根据Model中的更新规则以及数据，自动在数据库新增一行记录。
+When the SaveChanges method is executed, it automatically adds a record to the database according to the update rule and data of Model.
+
+### **Examples**
+
+
+
+### **Applies to**
+
+.NET Standard 
+
+2.x

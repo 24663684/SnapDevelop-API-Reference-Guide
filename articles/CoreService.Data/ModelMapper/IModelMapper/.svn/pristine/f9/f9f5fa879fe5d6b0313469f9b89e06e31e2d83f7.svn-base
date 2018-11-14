@@ -1,0 +1,67 @@
+
+
+## **IModelMapper.TrackMaster&#60;TModel>(IModelEntry&#60;TModel> modelEntry, Action&#60;ISaveContext> afterSaveAction) 方法**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">当前版本(0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+When working with multiple Models which have Master-Detail relationship，追踪主Model的数据和状态，用于将主Model的数据保存到数据库中, 并在保存后调用一个Action Delegate。
+
+ **命名空间：** Appeon.CoreService.Data
+
+ **程序集：** Appeon.CoreService.Data.dll
+
+### **语法**
+
+```c#
+  public IDetailTracker<TModel> TrackMaster<TModel>(IModelEntry<TModel> modelEntry, Action<ISaveContext> afterSaveAction);
+```
+
+**Type Parameters**
+
+`TModel`
+
+The type of a model class that conforms to Appeon's standard.
+
+**Parameters**
+
+`modelEntry` [Appeon.CoreService.Data.IModelEntry&#60;TModel>](../../IModelEntry2/IModelEntry.html)
+
+一个包含主Model的数据和数据状态的ModelEntry实例。
+
+`afterSaveAction` System.Action[&#60;ISaveContext>](../../ISaveContext/ISaveContext.html)
+
+一个需要追踪的Action Delegate，这个委托将在执行SaveChanges方法时将主Model的数据保存到数据库后被调用。
+
+**Returns**
+
+[Appeon.CoreService.Data.IDetailTracker&#60;TModel>](../../IDetailTracker/IDetailTracker.html)
+
+一个可用于继续对明细Model进行跟踪操作的接口。
+
+### **备注**
+
+当调用多个ModelMapper中用于追踪的方法后，追踪的先后顺序决定了SaveChanges方法在实际执行数据库操作时的先后顺序。
+
+需要在Model中定义ModelEmbedded attribute来表示Master-Detail relationship，具体参考Model定义中的相关说明。
+
+对数据库的删除记录的操作和调用指定的Action Delegate在同一个database transaction范围内。直到所有已追踪的指令执行完成后，才commit database transaction。
+
+在实例化Action Delegate时，可以使用ISaveContext泛型参数来读写保存数据过程中内部使用的上下文，具体请参考ISaveContext。
+
+### **示例**
+
+
+
+### **版本信息**
+
+.Net Standard 
+
+自2.x起可用

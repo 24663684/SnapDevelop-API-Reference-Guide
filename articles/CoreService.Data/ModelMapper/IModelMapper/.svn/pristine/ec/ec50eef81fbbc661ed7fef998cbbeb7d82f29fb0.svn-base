@@ -1,0 +1,81 @@
+
+
+## **IModelMapper.LoadEmbedded&#60;TModel>(TModel model, params object[] parameters) Method**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">Current version (0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+获取一个可以用于加载TModel实例中的嵌套属性的接口>。
+
+Obtains the IEmbeddedLoadable&#60;TModel> interface which can be used to load the embedded property of a TModel instance.
+
+ **Namespace:** Appeon.CoreService.Data
+
+ **Assembly:** Appeon.CoreService.Data.dll
+
+### **Syntax**
+
+```c#
+  public IEmbeddedLoadable<TModel> LoadEmbedded<TModel>(TModel model, params object[] parameters);
+```
+
+**Type Parameters**
+
+`TModel`
+
+The type of a model class that conforms to the Appeon standards.
+
+**Parameters**
+
+`model` System.TModel
+
+一个定义了一个或者多个嵌套属性的TModel实例。
+
+A TModel instance which has defined one or more embedded properties.
+
+`parameters` System.Object[]
+
+(Optional) One or more values that you want to use as retrieval arguments in the SQL SELECT statement defined in TModel.
+
+这些参数并不会被用于检索TModel,而是仅用于处理嵌套属性，因为嵌套属性的定义中有可能引用到TModel中的参数。
+
+These parameters will not be used to retrieve TModel, but used to process the embedded property, because the embedded property may have reference to these TModel parameters.
+
+**Returns**
+
+[Appeon.CoreService.Data.IEmbeddedLoadable&#60;TModel>](../../IEmbeddedLoadable/IEmbeddedLoadable.html)
+
+返回一个可以加载TModel实例中的嵌套属性的接口。
+
+利用该接口的 Method，可以对TModel中定义的一个或者多个嵌套属性进行加载。
+
+Returns an interface that can load the embedded property of a TModel instance. The method of this interface can load one or more embedded properties.
+
+### **Remarks**
+
+该 Method并未对主Model或者其嵌套属性进行实际的检索，需要通过该 Method返回的接口IEmbeddedLoadable&#60;TModel>的具体 Method数据检索和加载。
+
+This method does not actually retrieve the main Model or its embedded property, instead it returns the IEmbeddedLoadable&#60;TModel> interface whose methods will be used to retrieve and load data.
+
+如果需要对主Model进行检索并加载数据，请使用Load&#60;TModel> Method。
+
+To retrieve and load data of the main Model, use the Load&#60;TModel> method.
+
+### **Examples**
+
+
+
+
+
+### **Applies to**
+
+.NET Standard 
+
+2.x

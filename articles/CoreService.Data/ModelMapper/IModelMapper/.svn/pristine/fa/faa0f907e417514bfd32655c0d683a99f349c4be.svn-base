@@ -1,0 +1,78 @@
+
+
+## **IModelMapper.Track&#60;TModel>(IModelEntry&#60;TModel> modelEntry, Action&#60;ISaveContext> afterSaveAction) 方法**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">当前版本(0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+追踪一个包含数据和状态的ModelEntry&#60;TModel>实例，并指定更新数据库成功后调用一个Action Delegate。
+Tracks a ModelEntry&#60;TModel> instance including data and status, and calls an Action delegate after updating the specified database successfully.
+
+ **命名空间：** Appeon.CoreService.Data
+
+ **程序集：** Appeon.CoreService.Data.dll
+
+### **语法**
+
+```c#
+  public TModel Track<TModel>(IModelEntry<TModel> modelEntry,Action<ISaveContext> afterSaveAction);
+```
+
+**Type Parameters**
+
+`TModel`
+
+The type of a model class that conforms to Appeon's standard.
+
+**Parameters**
+
+`modelEntry` [Appeon.CoreService.Data.IModelEntry&#60;TModel>](../../IModelEntry2/IModelEntry.html)
+
+一个包含数据和状态的ModelEntry&#60;TModel>实例。
+A ModelEntry instance including data and status.
+
+`afterSaveAction` System.Action<[Appeon.CoreService.Data.ISaveContext](../../ISaveContext/ISaveContext.html)>
+
+一个需要追踪的Action Delegate，这个委托将在执行SaveChanges方法时被调用。
+
+An Action delegate needing to be tracked, which will be called when executing the SaveChanges method.
+
+**Returns**
+
+TModel
+
+返回一个已被追踪的TModel实例，该实例中包含ModelEntry实例中的数据。
+
+Returns a tracked Model instance which includes the data in ModelEntry instance.
+### **备注**
+
+在执行SaveChanges方法时将根据TModel中的定义以及数据的状态，自动执行相应的SQL DML，对数据进行数据更新操作，然将调用指定的Action Delegate。
+
+When executing the SaveChanges method, it automatically executes the corresponding SQL DML according to the definition and data status in the Model, and performs CRUD operations, and then calls the specified Action delegate.
+
+对数据库的更新操作和调用指定的Action Delegate在同一个database transaction范围内。直到所有已追踪的指令执行完成后，才commit database transaction。
+
+The update to the database and the call to the specified Action delegate are in the same database transaction. The database transaction will not be committed until all the tracked commands are performed.
+
+在实例化Action Delegate时，可以使用ISaveContext泛型参数来读写保存数据过程中内部使用的上下文，具体请参考ISaveContext。
+
+When instantiating the Action delegate, the generic parameter of ISaveContext can be used for reading and writing the context which is used internally for saving data. See ISaveContext for more info.
+
+### **示例**
+
+
+
+
+
+### **版本信息**
+
+.Net Standard 
+
+自2.x起可用

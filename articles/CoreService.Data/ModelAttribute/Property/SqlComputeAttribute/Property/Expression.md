@@ -1,0 +1,43 @@
+## **SqlComputeAttribute.Expression Property**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">Current version (0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+Gets the SQL expression which represents the computed column.
+
+ **Namespace:** Appeon.CoreService.Data
+
+ **Assembly:** Appeon.CoreService.Data.dll
+
+### **Syntax**
+
+```c#
+   public string Expression { get; }
+```
+
+**Property Value**
+
+System.String
+
+A SQL expression.
+
+### **Remarks**
+
+
+
+### **Examples**
+
+
+
+### **Applies to**
+
+.NET Standard 
+
+2.x

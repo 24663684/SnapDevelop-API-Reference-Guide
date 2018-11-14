@@ -1,0 +1,57 @@
+
+
+## **IModelMapper.TrackDelete&#60;TModel>(TModel model) 方法**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">当前版本(0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+追踪一个TModel实例, 用于删除数据库中与TModel对象对应的记录。
+
+ **命名空间：** Appeon.CoreService.Data
+
+ **程序集：** Appeon.CoreService.Data.dll
+
+### **语法**
+
+```c#
+  public IModelMapper TrackDelete<TModel>(TModel model);
+```
+
+**Type Parameters**
+
+`TModel`
+
+The type of a model class that conforms to Appeon's standard.
+
+**Parameters**
+
+`model` TModel
+
+与数据库记录对应的TModel实例。
+
+**Returns**
+
+[Appeon.CoreService.Data.IModelMapper](../../IModelMapper/IModelMapper.html)
+
+返回一个IModelMapper接口，可以使用该接口继续使用当前ModelMapper实例执行其他方法。
+
+### **备注**
+
+在执行SaveChanges方法时，将根据TModel中的主键，在数据库删除一行记录。
+
+### **示例**
+
+
+
+### **版本信息**
+
+.Net Standard 
+
+自2.x起可用

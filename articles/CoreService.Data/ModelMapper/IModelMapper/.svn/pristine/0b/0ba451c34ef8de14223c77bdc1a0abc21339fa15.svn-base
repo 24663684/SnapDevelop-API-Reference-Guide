@@ -1,0 +1,69 @@
+
+
+## **IModelMapper.TrackDeleteByKey&#60;TModel>(params object[] parameters) Method**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">Current version (0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+追踪根据TModel中定义的主键作为删除参数的数据，用于在数据库删除记录。
+
+Tracks the data that is deleted according to the primary key in TModel. Used for finally deleting the database records.
+
+ **Namespace:** Appeon.CoreService.Data
+
+ **Assembly:** Appeon.CoreService.Data.dll
+
+### **Syntax**
+
+```c#
+  public IModelMapper TrackDeleteByKey<TModel>(params object[] parameters);
+```
+
+**Type Parameters**
+
+`TModel`
+
+The type of a model class that conforms to the Appeon standard.
+
+**Parameters**
+
+`parameters` System.Object[]
+
+(Optional) One or more values that you want to use as retrieval arguments in the SELECT SQL statement defined by the master table and its primary key(s) in TModel.
+
+**Returns**
+
+[Appeon.CoreService.Data.IModelMapper](../../IModelMapper/IModelMapper.html)
+
+返回一个IModelMapper接口，可以使用该接口继续使用当前ModelMapper实例执行其他 Method。
+
+Returns an IModelMapper interface, which can be used for executing other methods with the current ModelMapper instance.
+
+### Remarks
+
+在执行SaveChanges Method时，将根据Model中的主键以及主键的值，自动在数据库删除主键相关的记录。
+
+When the SaveChanges method is executed, it will delete the database record according to the primary key and its value in TModel.
+
+**Cascade Delete**
+
+如需同时删除主表和明细表中关联的记录，可在Model中定义主表和明细表的级联删除规则，具体参考关于Model定义的说明。
+
+If the record in the master table and its associated records in the detail table must be deleted at the same time, you can define the cascade deletion rule for the master and the detail tables in Model. Refer to Model for more.
+
+### **Examples**
+
+
+
+### **Applies to**
+
+.NET Standard 
+
+2.x

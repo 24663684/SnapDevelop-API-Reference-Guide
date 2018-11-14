@@ -1,0 +1,67 @@
+
+
+## **IModelMapper.Validation(out DataValidationResult result) Method**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">Current version (0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+对ModelMapper追踪到的数据进行合法性验证，并获取验证结果。
+
+Performs validity check to all of the data tracked by ModelMapper and gets the validation result.
+
+ **Namespace:** Appeon.CoreService.Data
+
+ **Assembly:** Appeon.CoreService.Data.dll
+
+### **Syntax**
+
+```c#
+  public bool Validation(out DataValidationResult result);
+```
+
+**Parameters**
+
+`result` [Appeon.CoreService.Data.DataValidationResult](../../DataValidationResult/DataValidationResult.html)
+
+一个包含数据验证结果的实例。
+
+An instance that includes the data validation result.
+
+可通过访问它的IsSuccess属性来获取校验是否成功，通过ErrorMessage属性获取具体错误信息。
+
+Its IsSuccess property can be accessed to determine whether validation is successful. Its ErrorMessage property can be accessed to get the detailed error information.
+
+**Returns**
+
+System.Boolean
+
+对已追踪的所有Model的数据进行的合法性验证是否均已通过。
+
+Whether all of the data tracked by Model has passed the validity check.
+
+### **Remarks**
+
+数据验证规则在各个Model中分别定义。
+
+The validation rule is separately defined in each Model.
+
+当执行Savechanges Method时，也会验证已追踪的所有Model的数据， 但是验证失败时将会throw an instance of the ValidationException Class。
+
+When the SaveChanges method is executed, it will also validate all of the data tracked by Model. If validation failed, it will throw an instance of the ValidationException class.
+
+### **Examples**
+
+
+
+### **Applies to**
+
+.NET Standard 
+
+2.x

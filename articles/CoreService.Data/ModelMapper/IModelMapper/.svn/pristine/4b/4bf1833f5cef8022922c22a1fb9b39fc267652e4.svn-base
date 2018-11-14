@@ -1,0 +1,79 @@
+
+
+## **IModelMapper.TrackDelete&#60;TModel>(TModel model, Action&#60;ISaveContext> afterSaveAction) Method**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">Current version (0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+追踪一个TModel实例, 用于删除数据库中与TModel对象对应的记录，并在数据保存后但未提交数据库之前调用一个Action Delegate。
+
+Tracks a TModel instance. Used for deleting the database record corresponding to the TModel object and calling an Action delegate after saving the data and before committing to the database.
+
+ **Namespace:** Appeon.CoreService.Data
+
+ **Assembly:** Appeon.CoreService.Data.dll
+
+### **Syntax**
+
+```c#
+  public IModelMapper TrackDelete<TModel>(TModel model, Action<ISaveContext> afterSaveAction);
+```
+
+**Type Parameters**
+
+`TModel`
+
+The type of a model class that conforms to the Appeon standard.
+
+**Parameters**
+
+`model` TModel
+
+与数据库记录对应的TModel实例。
+
+The TModel instance that corresponds to the database record.
+
+`afterSaveAction` System.Action<[Appeon.CoreService.Data.ISaveContext](../../ISaveContext/ISaveContext.html)>
+
+一个需要追踪的Action Delegate，这个委托将在执行SaveChanges Method时删除记录后被调用。
+
+An Action delegate that needs to be tracked. This delegate will be called when the SaveChanges method is executed and the record is deleted successfully.
+
+**Returns**
+
+[Appeon.CoreService.Data.IModelMapper](../../IModelMapper/IModelMapper.html)
+
+返回一个IModelMapper接口，可以使用该接口继续使用当前ModelMapper实例执行其他 Method。
+
+Returns an IModelMapper interface, which can be used for executing other methods with the current ModelMapper instance.
+
+### **Remarks**
+
+在执行SaveChanges Method时，将根据Model中的主键以及主键的值，自动在数据库删除一行记录，然将调用指定的Action Delegate。
+
+When the SaveChanges method is executed, it will automatically delete the database record according to the primary key and its value in TModel, and then call the specified Action delegate.
+
+对数据库的删除记录的操作和调用指定的Action Delegate在同一个database transaction范围内。直到所有已追踪的指令执行完成后，才commit database transaction。
+
+The delete operation to the database record and the call to the specified Action delegate are in the same database transaction. The database transaction will not be committed until all of the tracked directives are performed.
+
+在实例化Action Delegate时，可以使用ISaveContext泛型参数来读写保存数据过程中内部使用的上下文，具体请参考ISaveContext。
+
+When instantiating the Action delegate, the generic parameter of ISaveContext can be used for reading and writing the context which is used internally for saving data. See ISaveContext for more info.
+
+### **Examples**
+
+
+
+### **Applies to**
+
+.NET Standard 
+
+2.x

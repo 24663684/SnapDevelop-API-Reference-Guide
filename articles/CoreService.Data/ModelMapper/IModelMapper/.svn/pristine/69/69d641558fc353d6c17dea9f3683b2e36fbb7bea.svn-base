@@ -1,0 +1,79 @@
+
+
+## **IModelMapper.TrackMaster&#60;TModel>(IModelEntry&#60;TModel> modelEntry, Action&#60;ISaveContext> afterSaveAction) Method**
+
+**.NET Standard 2.x |**  <a href="javascript:void(0)" class="dropdown">Current version (0.5.0-alpha) <img src="~/images/dropdown.png"/></a>
+
+<div class="otherversions"  value="versdiv">
+
+<a href="javascript:void(0)">0.5.0-alpha</a>
+
+<a href="javascript:void(0)">0.5.1-alpha(current)</a>
+
+</div>
+
+When working with multiple models which have Master-Detail relationship，追踪一个对主数据库表的操作和一个Action Delegate，由数据的状态决定如何选择insert, update or delete 操作，将被用来操纵数据库表的数据缓存于TModel中。当IModelMapper.SaveChanges被调用时，一条SQL INSERT, UPDATE or DELETE statement 将用缓存在TModel中的数据以及被定义在TModel中的映射信息来产生，并执行，之后调用Action delegate。
+
+Tracks an insert, update or delete operation to the master table and an Action delegate when working with multiple models which are in the master-detail relationship. The data status determines which operation (insert, update or delete) to perform. The data to be manipulated is cached in TModel. When IModelMapper.SaveChanges is called, a SQL statement (INSERT, UPDATE or DELETE) will be first generated using the data cached in TModel and the mapping information defined in TModel, and then executed; and after that, the Action delegate will be called.
+
+ **Namespace:** Appeon.CoreService.Data
+
+ **Assembly:** Appeon.CoreService.Data.dll
+
+### **Syntax**
+
+```c#
+  public IDetailTracker<TModel> TrackMaster<TModel>(IModelEntry<TModel> modelEntry, Action<ISaveContext> afterSaveAction);
+```
+
+**Type Parameters**
+
+`TModel`
+
+The type of a model class that conforms to the Appeon standard.
+
+**Parameters**
+
+`modelEntry` [Appeon.CoreService.Data.IModelEntry&#60;TModel>](../../IModelEntry2/IModelEntry.html)
+
+一个包含主Model的数据和数据状态的ModelEntry实例。
+
+A ModelEntry instance which includes the data and status of the master Model.
+
+`afterSaveAction` System.Action[&#60;ISaveContext>](../../ISaveContext/ISaveContext.html)
+
+一个需要追踪的Action Delegate。
+
+An Action delegate that needs to be tracked. 
+
+**Returns**
+
+[Appeon.CoreService.Data.IDetailTracker&#60;TModel>](../../IDetailTracker/IDetailTracker.html)
+
+一个可用于继续对明细Model进行跟踪操作的接口。
+
+An interface that can be used to track the detail Model.
+
+### **Remarks**
+
+需要在Model中定义ModelEmbedded attribute来表示Master-Detail relationship，具体参考Model定义中的相关说明。
+
+The ModelEmbedded attribute must be defined in TModel to create the master-detail relationship. Refer to Model for more.
+
+对数据库的删除记录的操作和调用指定的Action Delegate在同一个database transaction范围内。直到所有已追踪的指令执行完成后，才commit database transaction。
+
+The delete operation to the database record and the call to the specified Action delegate are in the same database transaction. The database transaction will not be committed until all of the tracked directives are performed.
+
+在实例化Action Delegate时，可以使用ISaveContext泛型参数来读写保存数据过程中内部使用的上下文，具体请参考ISaveContext。
+
+When instantiating the Action delegate, the generic parameter of ISaveContext can be used for reading and writing the context which is used internally for saving data. See ISaveContext for more info.
+
+### **Examples**
+
+
+
+### **Applies to**
+
+.NET Standard 
+
+2.x
